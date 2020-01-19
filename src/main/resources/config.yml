@@ -1,0 +1,28 @@
+# Worlds where board should display
+worlds:
+  - world
+  - world_nether
+  - world_the_end
+
+# Interval in ticks, before next scoreboard refresh.
+interval: 20
+
+# Main scoreboard options.
+# Each line can have max. 40 characters.
+# Lines can't repeat.
+# You can use PlaceholderAPI placeholders.
+scoreboard:
+  # You can fully disable scoreboard, to use this plugin only as API.
+  enabled: true
+  title: "&e&lRUSHBOARD"
+  contents:
+    - "&r"
+    - "Thank yoy for downloading &eRushBoard"
+    - "Go to &econfig.yml &fto change this board!"
+    - "&r&r"
+    - "&ewww.spigotmc.org"
+
+# These settings are not really important.
+misc:
+  objective-name: "rushboard"
+  objective-display: "rushboard"
