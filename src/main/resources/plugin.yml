@@ -1,0 +1,10 @@
+name: RushBoard
+version: 1.0-b1
+author: iShift
+main: me.ishift.rushboard.RushBoard
+softdepend: [PlaceholderAPI]
+
+commands:
+  rushboard:
+    aliases: [board, sidebar, sb]
+    description: Main plugin command.
