@@ -99,7 +99,7 @@ public class RushBoard extends JavaPlugin {
         return placehoderApiHook;
     }
 
-    public static boolean isBoardEnabled() {
-        return getInstance().getConfig().getBoolean("scoreboard.enabled");
+    public static boolean isBoardDisabled() {
+        return !getInstance().getConfig().getBoolean("scoreboard.enabled");
     }
 }

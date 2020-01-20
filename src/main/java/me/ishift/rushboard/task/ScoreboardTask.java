@@ -9,7 +9,7 @@ public class ScoreboardTask implements Runnable {
     @Override
     public void run() {
         // Checking if scoreboard is enabled.
-        if (!RushBoard.isBoardEnabled()) {
+        if (RushBoard.isBoardDisabled()) {
             return;
         }
         Bukkit.getOnlinePlayers().forEach(player -> {

@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 public class RushBoardCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
-        if (!RushBoard.isBoardEnabled()) {
+        if (RushBoard.isBoardDisabled()) {
             return true;
         }
         if (args.length < 1) {
@@ -28,6 +28,10 @@ public class RushBoardCommand implements CommandExecutor {
             return true;
         }
         if (args[0].equalsIgnoreCase("toggle") && sender instanceof Player) {
+            if (!sender.hasPermission("rushboard.toggle")) {
+                sender.sendMessage(ChatUtil.fixColor(RushBoard.getString("messages.no-permission")));
+                return true;
+            }
             if (RushBoard.getToggledOff().contains(sender.getName())) {
                 RushBoard.removeToggledOff(sender.getName());
                 sender.sendMessage(ChatUtil.fixColor(RushBoard.getString("messages.toggled-on")));
