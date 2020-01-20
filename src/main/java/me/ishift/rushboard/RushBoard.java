@@ -2,6 +2,7 @@ package me.ishift.rushboard;
 
 import me.ishift.rushboard.command.RushBoardCommand;
 import me.ishift.rushboard.task.ScoreboardTask;
+import me.ishift.rushboard.util.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -31,6 +32,7 @@ public class RushBoard extends JavaPlugin {
         this.loadData();
         this.getCommand("rushboard").setExecutor(new RushBoardCommand());
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new ScoreboardTask(), 0L, this.getConfig().getLong("interval"));
+        new Metrics(this);
     }
 
     @Override

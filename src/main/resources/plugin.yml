@@ -1,5 +1,5 @@
 name: RushBoard
-version: 1.0-b1
+version: 1.0
 author: iShift
 main: me.ishift.rushboard.RushBoard
 softdepend: [PlaceholderAPI]
