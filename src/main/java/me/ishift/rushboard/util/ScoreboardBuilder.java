@@ -49,7 +49,7 @@ public class ScoreboardBuilder {
         }
 
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-        int line = 0;
+        int line = this.entries.size();
 
         for (String entry : this.entries) {
             Score score;
@@ -57,11 +57,11 @@ public class ScoreboardBuilder {
                 score = objective.getScore(ChatUtil.fixColor(PlaceholderUtil.replace(this.player, entry)));
                 objective.setDisplayName(ChatUtil.fixColor(PlaceholderUtil.replace(this.player, this.title)));
             } else {
-                score = objective.getScore(entry);
+                score = objective.getScore(ChatUtil.fixColor(entry));
                 objective.setDisplayName(ChatUtil.fixColor(this.title));
             }
             score.setScore(line);
-            line++;
+            line--;
         }
 
         return board;
