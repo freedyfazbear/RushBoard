@@ -2,9 +2,11 @@ package me.ishift.rushboard.command;
 
 import me.ishift.rushboard.RushBoard;
 import me.ishift.rushboard.util.ChatUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class RushBoardCommand implements CommandExecutor {
     @Override
@@ -22,7 +24,15 @@ public class RushBoardCommand implements CommandExecutor {
             sender.sendMessage(ChatUtil.fixColor(RushBoard.getString("messages.reload")));
             return true;
         }
-        if (args[0].equalsIgnoreCase("toggle")) {
+        if (args[0].equalsIgnoreCase("toggle") && sender instanceof Player) {
+            if (RushBoard.getToggledOff().contains(sender.getName())) {
+                RushBoard.removeToggledOff(sender.getName());
+                sender.sendMessage(ChatUtil.fixColor(RushBoard.getString("messages.toggled-on")));
+                return true;
+            }
+            RushBoard.addToggledOff(sender.getName());
+            sender.sendMessage(ChatUtil.fixColor(RushBoard.getString("messages.toggled-off")));
+            ((Player) sender).setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
             return true;
         }
         else {

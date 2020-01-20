@@ -1,5 +1,6 @@
 package me.ishift.rushboard;
 
+import me.ishift.rushboard.command.RushBoardCommand;
 import me.ishift.rushboard.task.ScoreboardTask;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -28,6 +29,7 @@ public class RushBoard extends JavaPlugin {
             new RushBoardPlaceholder(this).register();
         }
         this.loadData();
+        this.getCommand("rushboard").setExecutor(new RushBoardCommand());
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new ScoreboardTask(), 0L, this.getConfig().getLong("interval"));
     }
 
@@ -62,6 +64,18 @@ public class RushBoard extends JavaPlugin {
         }
         final FileConfiguration config = YamlConfiguration.loadConfiguration(file);
         toggledOff = config.getStringList("toggled-off");
+    }
+
+    public static List<String> getToggledOff() {
+        return toggledOff;
+    }
+
+    public static void addToggledOff(String playername) {
+        toggledOff.add(playername);
+    }
+
+    public static void removeToggledOff(String playername) {
+        toggledOff.remove(playername);
     }
 
     public static RushBoard getInstance() {
