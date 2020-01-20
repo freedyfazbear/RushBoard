@@ -9,7 +9,7 @@
 # Discord account: iShift#0001
 # Discord support server: https://discord.gg/VkfhFCv
 
-# Worlds where board should display
+# Worlds where the board should display
 worlds:
   - world
   - world_nether

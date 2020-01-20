@@ -8,6 +8,10 @@ import org.bukkit.scoreboard.Scoreboard;
 public class ScoreboardTask implements Runnable {
     @Override
     public void run() {
+        // Checking if scoreboard is enabled.
+        if (!RushBoard.isBoardEnabled()) {
+            return;
+        }
         Bukkit.getOnlinePlayers().forEach(player -> {
             // Checking if player has toggled of scoreboard.
             if (RushBoard.getToggledOff().contains(player.getName())) {

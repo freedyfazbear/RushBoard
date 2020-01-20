@@ -11,6 +11,9 @@ import org.bukkit.entity.Player;
 public class RushBoardCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+        if (!RushBoard.isBoardEnabled()) {
+            return true;
+        }
         if (args.length < 1) {
             RushBoard.getInstance().getConfig().getStringList("messages.main-command").forEach(string -> sender.sendMessage(ChatUtil.fixColor(string.replace("%alias%", s))));
             return true;
