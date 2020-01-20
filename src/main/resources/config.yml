@@ -29,14 +29,14 @@ scoreboard:
 # Configure every message available in the plugin.
 messages:
   main-command:
-    - "&m------------------------------------"
-    - "&eRushBoard &7Help command"
+    - "&7&m------------------------------------"
+    - "     &eRushBoard &7Help command"
     - ""
     - "&f/%alias% reload &7- reload configuration."
-    - "&f%alias% toggle &7- hide/reappear sidebar for you."
-    - "&m------------------------------------"
+    - "&f/%alias% toggle &7- hide/reappear sidebar for you."
+    - "&7&m------------------------------------"
   no-permission: "&cYou don't have permission to do this."
   unknown-command: "&cCommand not found."
   reload: "&eRushBoard &7has been &asuccesully &7reloaded."
-  toggle-on: "&7You have toggled &aON &7your scoreboard."
-  toggle-off: "&7You have toggled &cOFF &7your scoreboard."
+  toggled-on: "&7You have toggled &aON &7your scoreboard."
+  toggled-off: "&7You have toggled &cOFF &7your scoreboard."

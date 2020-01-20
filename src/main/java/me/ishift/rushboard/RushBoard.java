@@ -43,6 +43,9 @@ public class RushBoard extends JavaPlugin {
         final FileConfiguration config = YamlConfiguration.loadConfiguration(file);
         if (!toggledOff.isEmpty()) {
             config.set("toggled-off", toggledOff);
+        } else {
+            // Overriding already saved list, without it, after restart, players would have toggled off scoreboard even if they toggled it on, but no one toggled it off.
+            config.set("toggled-off", Collections.singletonList("example__"));
         }
         try {
             config.save(file);

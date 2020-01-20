@@ -9,6 +9,11 @@ public class ScoreboardTask implements Runnable {
     @Override
     public void run() {
         Bukkit.getOnlinePlayers().forEach(player -> {
+            // Checking if player has toggled of scoreboard.
+            if (RushBoard.getToggledOff().contains(player.getName())) {
+                return;
+            }
+
             // Checking player's world.
             if (!RushBoard.getInstance().getConfig().getStringList("worlds").contains(player.getWorld().getName())) {
                 return;
